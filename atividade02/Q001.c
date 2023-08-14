@@ -11,6 +11,7 @@ int main(void){
     
     invertArray(arrayOrigin, arrayInverted, 0, (SIZE - 1));
 
+    // mostrar array no terminal
     for (int i = 0; i < SIZE; i++)
     {
         printf("%d ", arrayInverted[i]);
@@ -21,14 +22,13 @@ int main(void){
 
 void invertArray(const int arrayOrigin[], int arrayInverted[], int index, int arrayLenght){
  
-  
-    arrayInverted[index] = arrayOrigin[arrayLenght - index];
-
-      if(index == (arrayLenght)){
-        return;
-    }
+      if(index > (arrayLenght)){
+            return;
+        }  
 
     invertArray(arrayOrigin, arrayInverted, index + 1, arrayLenght);
 
-   
+    arrayInverted[arrayLenght - index] = arrayOrigin[index];
+
+
 }
